@@ -1,3 +1,5 @@
+package en.ase.sqt.flyweight;
+
 import en.ase.sqt.flyweight.models.TextEditor;
 import en.ase.sqt.flyweight.models.TextCharacter;
 
@@ -10,5 +12,6 @@ public class Main {
         }
 
         editor.printAll();
+
     }
 }
