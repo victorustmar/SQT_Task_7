@@ -1,4 +1,4 @@
-package en.ase.sqt.proxy;
+package en.ase.sqt.proxy.client;
 
 import en.ase.sqt.proxy.abstracts.PlayableVideo;
 import en.ase.sqt.proxy.models.ProxyVideoPlayer;
@@ -15,7 +15,6 @@ public class Marketing {
         Thread.sleep(10000);
 
         System.out.println("Playing: " + videoProxy.playVideo());
-
         System.out.println("Done!");
     }
 }

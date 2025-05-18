@@ -1,4 +1,4 @@
-package en.ase.sqt.flyweight;
+package en.ase.sqt.flyweight.client;
 
 import en.ase.sqt.flyweight.models.TextEditor;
 import en.ase.sqt.flyweight.models.TextCharacter;
