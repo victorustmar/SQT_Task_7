@@ -3,40 +3,18 @@ package en.ase.sqt.proxy.models;
 import en.ase.sqt.proxy.abstracts.PlayableVideo;
 
 public class ProxyVideoPlayer implements PlayableVideo {
-    private final VideoPlayer videoPlayer;
-    private final String name;
-    private boolean isRendered = false;
+    private final VideoPlayer realPlayer;
 
-    public ProxyVideoPlayer(String name) {
-        this.videoPlayer = new VideoPlayer(name);
-        this.name = name;
-
-
-
-        Thread thread = new Thread(() -> {
-            while (!this.isRendered) {
-                try {
-                    Thread.sleep(500);
-
-                    String text = this.videoPlayer.playVideo();
-                    if (text.equals(this.name)) {
-                        this.isRendered = true;
-                    }
-                } catch (Exception ignored) {
-                }
-            }
-        });
-        thread.start();
+    public ProxyVideoPlayer(VideoPlayer realPlayer) {
+        this.realPlayer = realPlayer;
     }
 
-
-
     @Override
-    public void play() {
-        if (isRendered) {
-            System.out.println(" we play this  "+videoPlayer.playVideo());
-        } else {
-            System.out.println(" try again");
+    public String playVideo() {
+        try {
+            return realPlayer.playVideo();
+        } catch (NullPointerException e) {
+            return "Try again later";
         }
     }
 }
